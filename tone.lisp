@@ -1,0 +1,18 @@
+(write-line "Hello, world!")
+;printf("Hello, World!")
+(write-line "set the amount of rolls:")
+(defvar x (read))
+
+(defun roll (times)
+    (let ((nuber (+ (random 6) 1)))
+        (loop while (> times 0) do
+            (setf *random-state* (make-random-state t))
+            (setq nuber (+ (random 6) 1))
+            (setq times (- times 1))
+            (if ( < nuber 4) 
+                (format t "you rolled a ~a, which was a low roll~%"  nuber)
+                (format t "you rolled a ~a, which was a high roll~%" nuber))
+        )
+    )
+)
+(roll x)
